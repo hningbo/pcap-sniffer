@@ -3,6 +3,7 @@
 #include<pcap.h>
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 
 class Sniffer
 {
@@ -12,13 +13,13 @@ public:
     void loop_packet();
     void resolve_packet();
     Sniffer(char *dev);
-private:
-    char *dev;
-    pcap_t *device;
-
     ~Sniffer()
     {
 
     };
+
+private:
+    char *dev;
+    pcap_t *device;
 };
 #endif

@@ -1,6 +1,6 @@
 #include "Sniffer.h"
 
-Sniffer::Sniffer(char *devname )
+Sniffer::Sniffer(char *devname)
 {
     /* open a device, wait until a packet arrives */
     device = pcap_open_live(devname, 65535, 1, 0, ERR_BUF);
@@ -10,6 +10,7 @@ Sniffer::Sniffer(char *devname )
         printf("error: pcap_open_live(): %s\n", ERR_BUF);
         exit(1);
     }
+    printf("success : pcap_open_live(): %s\n", devname);
 }
 
 void Sniffer::get_packet(u_char * arg, const struct pcap_pkthdr * pkthdr, const u_char * packet)
